@@ -73,24 +73,25 @@
 
 <script>
     // Function to animate the progress bar
-    function animateProgress() {
-        const progressElement = document.getElementById('progress');
-        let width = 10;
-        const interval = setInterval(() => {
-            if (width >= 100) {
-                clearInterval(interval);
-                
-                // Get current URL parameters
-                const params = new URLSearchParams(window.location.search);
-                
-                // Redirect to result.html with preserved parameters
-                window.location.href = "result.html?" + params.toString();
-            } else {
-                width++;
-                progressElement.style.width = width + '%';
-            }
-        }, 50); // Each 50ms, the bar increases by 1%, reaching 100% in 5 seconds
-    }
+function animateProgress() {
+    const progressElement = document.getElementById('progress');
+    let width = 10;
+    const interval = setInterval(() => {
+        if (width >= 100) {
+            clearInterval(interval);
+
+            // Recupera os parâmetros da URL atual
+            const params = new URLSearchParams(window.location.search);
+
+            // Redireciona para a próxima página com os parâmetros UTM preservados
+            window.location.href = "result.html?" + params.toString();
+        } else {
+            width++;
+            progressElement.style.width = width + '%';
+        }
+    }, 50); // Cada 50ms, a barra aumenta 1%, chegando a 100% em 5 segundos
+}
+
 
     // Start animation when the page loads
     window.onload = animateProgress;
