@@ -201,5 +201,16 @@ border-radius: 14px;
   </div>
 
 
+<script>
+    // Captura os parâmetros da URL atual
+    const currentParams = new URLSearchParams(window.location.search);
+
+    // Verifica se existem parâmetros
+    if (currentParams.toString()) {
+        // Seleciona o botão e atualiza o link
+        const manifestButton = document.getElementById('manifest-btn');
+        manifestButton.href = "vsl.html?" + currentParams.toString();
+    }
+</script>
 
 </body></html>
