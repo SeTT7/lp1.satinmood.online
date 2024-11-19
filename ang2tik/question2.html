@@ -10,7 +10,7 @@
     <title>Question 2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
     <style>
         .subtitle {
             font-family: 'adobe-garamond-pro';
@@ -30,6 +30,11 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
+        }
+
+        a {
+            display: block;
+            text-decoration: none;
         }
 
         .container {
@@ -91,17 +96,15 @@
         }
 
         .submit-btn {
-            box-sizing: border-box !important;
-            background: linear-gradient(180deg, #2BAC22 0%, #279A1F 100%) !important;
-            border: 2px solid #37D12C !important;
-            border-radius: 14px !important;
+            background: linear-gradient(180deg, #2BAC22 0%, #279A1F 100%);
+            border: 2px solid #37D12C;
+            border-radius: 14px;
             color: white;
             padding: 15px;
             font-size: 1.2rem;
             cursor: pointer;
             width: 100%;
             opacity: 0.6;
-            text-decoration: none;
         }
 
         .submit-btn:hover {
@@ -115,12 +118,56 @@
         body {
             background-image: url(images/fundo.png);
         }
+
+        .question {
+            width: 103px;
+            height: 14px;
+            font-family: 'Inter';
+            font-style: normal;
+            font-weight: 400;
+            font-size: 16px;
+            line-height: 30px;
+            align-items: center;
+            text-align: center;
+            width: 100%;
+            color: #272727;
+        }
+
+        .subtitle {
+            width: 100%;
+            height: auto;
+            font-family: 'adobe-garamond-pro';
+            font-style: normal;
+            font-weight: 700;
+            font-size: 28px;
+            line-height: 34px;
+            text-align: center;
+            color: #886C29;
+        }
+
+        input {
+            box-sizing: border-box;
+            background: #9D998D;
+            border: 1px solid #8C8675;
+            border-radius: 10px;
+        }
+
+        input::placeholder {
+            color: #DBDBDB;
+        }
+
+        .progress-bar {
+            background-color: #737373;
+        }
+
+        .progress {
+            background-color: #1F7219;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h3 style="transform:translateY(-70px);">Find Out Who Your Guardian Angel Is and Access Your Angel’s Chant</h3>
-
         <div class="progress-bar">
             <div class="progress"></div>
         </div>
@@ -130,6 +177,7 @@
             <input type="text" id="birth-date" placeholder="Day/Month/Year">
         </div>
         <a href="#" id="submit-btn" class="submit-btn" style="pointer-events: none;">SUBMIT MY ANSWER</a>
+        <br>
     </div>
 
     <script>
@@ -147,12 +195,14 @@
         });
 
         submitBtn.addEventListener('click', function (event) {
-            event.preventDefault(); // Evita o comportamento padrão do link
-
-            // Pega os parâmetros da URL atual
+            event.preventDefault();
             const params = new URLSearchParams(window.location.search);
+            const userDate = inputField.value.trim();
 
-            // Define o redirecionamento para a página seguinte
+            if (userDate) {
+                params.set('birth_date', userDate);
+            }
+
             const nextPage = "loading.html?" + params.toString();
             window.location.href = nextPage;
         });
