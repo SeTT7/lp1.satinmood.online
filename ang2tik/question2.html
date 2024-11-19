@@ -1,4 +1,6 @@
-<html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta property="og:url" content="https://lp1.satinmood.online">
@@ -7,20 +9,15 @@
     <meta property="og:image" content="https://img.imageboss.me/atm/cdn/format:auto/u/umsGbYu2QNOfeAn5fEqSwCDI4VE3/l/rBhIAv7621085.png">
     <title>Question 2</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
-<style>
-.subtitle{
-
-font-family: 'adobe-garamond-pro';
-
-}
-*{
-    font-family: "Inter"
-}
-
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+    <style>
+        .subtitle {
+            font-family: 'adobe-garamond-pro';
+        }
 
         * {
+            font-family: "Inter";
             margin: 0;
             padding: 0;
             box-sizing: border-box;
@@ -34,9 +31,7 @@ font-family: 'adobe-garamond-pro';
             align-items: center;
             height: 100vh;
         }
-        a{
-    display: block;
-}
+
         .container {
             padding: 20px;
             border-radius: 10px;
@@ -58,7 +53,7 @@ font-family: 'adobe-garamond-pro';
             height: 100%;
             background-color: #4caf50;
             border-radius: 5px;
-            width: 60%; /* Progresso de 10% */
+            width: 60%;
         }
 
         .progress-bar span {
@@ -95,24 +90,18 @@ font-family: 'adobe-garamond-pro';
             color: white;
         }
 
-/* Rectangle 3 */
-.submit-btn {
-box-sizing: border-box !important;
-background: linear-gradient(180deg, #2BAC22 0%, #279A1F 100%) !important;
-border: 2px solid #37D12C !important;
-border-radius: 14px !important;
-}
-
         .submit-btn {
-            background-color: #4caf50;
+            box-sizing: border-box !important;
+            background: linear-gradient(180deg, #2BAC22 0%, #279A1F 100%) !important;
+            border: 2px solid #37D12C !important;
+            border-radius: 14px !important;
             color: white;
             padding: 15px;
-            border: none;
-            border-radius: 5px;
             font-size: 1.2rem;
             cursor: pointer;
             width: 100%;
             opacity: 0.6;
+            text-decoration: none;
         }
 
         .submit-btn:hover {
@@ -122,74 +111,15 @@ border-radius: 14px !important;
         .submit-btn:enabled {
             opacity: 1;
         }
-        a{
-            text-decoration: none;
-        }
+
         body {
-    background-image: url(images/fundo.png);
-}
-
-/* Question 1 */
-.question{
-width: 103px;
-height: 14px;
-
-font-family: 'Inter';
-font-style: normal;
-font-weight: 400;
-font-size: 16px;
-line-height: 30px;
-/* or 188% */
-align-items: center;
-text-align: center;
-width:100%;
-color: #272727;
-}
-
-/* What was the day of your birth? */
-
-.subtitle{
-width: 100%;
-height: auto;
-
-font-family: 'adobe-garamond-pro';
-font-style: normal;
-font-weight: 700;
-font-size: 28px;
-line-height: 34px;
-/* or 121% */
-text-align: center;
-
-color: #886C29;
-}
-
-input{
-    /* Group 119 */
-box-sizing: border-box !important;
-background: #9D998D !important;
-border: 1px solid #8C8675 !important;
-border-radius: 10px !important;
-
-
-}
-input::placeholder {
-    color: #DBDBDB !important;
-}
-
-.progress-bar{
-    background-color:#737373 !important;
-}
-.progress{
-    background-color:#1F7219 !important;
-}
-
+            background-image: url(images/fundo.png);
+        }
     </style>
 </head>
 <body>
     <div class="container">
-
         <h3 style="transform:translateY(-70px);">Find Out Who Your Guardian Angel Is and Access Your Angel’s Chant</h3>
-
 
         <div class="progress-bar">
             <div class="progress"></div>
@@ -199,16 +129,14 @@ input::placeholder {
         <div class="input-field">
             <input type="text" id="birth-date" placeholder="Day/Month/Year">
         </div>
-        <a href="loading.html" id="submit-btn" class="submit-btn" style="pointer-events: none;">SUBMIT MY ANSWER</a>
-        <br>
+        <a href="#" id="submit-btn" class="submit-btn" style="pointer-events: none;">SUBMIT MY ANSWER</a>
     </div>
 
     <script>
         const inputField = document.getElementById('birth-date');
         const submitBtn = document.getElementById('submit-btn');
 
-        inputField.addEventListener('input', function() {
-            // Habilita o botão apenas se houver algo digitado
+        inputField.addEventListener('input', function () {
             if (inputField.value.trim() !== "") {
                 submitBtn.style.pointerEvents = 'auto';
                 submitBtn.style.opacity = '1';
@@ -217,22 +145,17 @@ input::placeholder {
                 submitBtn.style.opacity = '0.6';
             }
         });
+
+        submitBtn.addEventListener('click', function (event) {
+            event.preventDefault(); // Evita o comportamento padrão do link
+
+            // Pega os parâmetros da URL atual
+            const params = new URLSearchParams(window.location.search);
+
+            // Define o redirecionamento para a página seguinte
+            const nextPage = "loading.html?" + params.toString();
+            window.location.href = nextPage;
+        });
     </script>
-
-<script>
-    const submitBtn = document.getElementById('submit-btn');
-
-    submitBtn.addEventListener('click', function (event) {
-        event.preventDefault(); // Evita o redirecionamento padrão do link
-
-        // Recupera os parâmetros da URL atual
-        const params = new URLSearchParams(window.location.search);
-
-        // Define o próximo destino com os mesmos parâmetros
-        const nextPage = "loading.html?" + params.toString();
-        window.location.href = nextPage;
-    });
-</script>
-
-
-</body></html>
+</body>
+</html>
