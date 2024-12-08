@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
+
  <style>
     * {
       margin: 0;
@@ -169,48 +170,50 @@ border-radius: 14px;
 </head>
 <body>
 
-  <div class="container">
+<div class="container">
     <!-- Title outside of the flexbox -->
     <h1>Incredible! Your guardian angel is the mighty <span class="highlight">Archangel Michael</span>, leader of the celestial army...</h1>
 
     <!-- Flex container for image and content -->
     <div class="content-wrapper">
-      <img src="images/2anjo.webp" alt="Archangel Michael Image" class="angel-image">
+        <img src="images/2anjo.webp" alt="Archangel Michael Image" class="angel-image">
 
-      <div class="content">
-        <p class="description">
-          His manifestation ability is incredibly powerful, and his chant is known to bring abundance and financial prosperity!</b>
-
-        </p>
-      </div>
+        <div class="content">
+            <p class="description">
+                His manifestation power is the most powerful, and his chant usually <b>attracts abundance and performs financial miracles in less than 24 hours!</b>
+            </p>
+        </div>
     </div>
 
     <!-- Call to action button -->
     <p class="click-instruction">
-      <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M10.6664 12.6667C11.0487 12.6667 11.431 12.5227 11.7225 12.2352L20.8954 3.18338C21.4789 2.60757 21.4789 1.674 20.8954 1.09843C20.3121 0.522855 19.3662 0.522855 18.7827 1.09843L10.6664 9.10797L2.55005 1.09871C1.96654 0.523134 1.02076 0.523134 0.437523 1.09871C-0.146275 1.67428 -0.146275 2.60785 0.437523 3.18366L9.61025 12.2355C9.90189 12.523 10.2842 12.6667 10.6664 12.6667Z" fill="#E4B649"></path>
-      </svg>
-      Your chant has been released, click the button below and follow the instructions on how to use it!
-
+        <svg width="22" height="13" viewBox="0 0 22 13" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M10.6664 12.6667C11.0487 12.6667 11.431 12.5227 11.7225 12.2352L20.8954 3.18338C21.4789 2.60757 21.4789 1.674 20.8954 1.09843C20.3121 0.522855 19.3662 0.522855 18.7827 1.09843L10.6664 9.10797L2.55005 1.09871C1.96654 0.523134 1.02076 0.523134 0.437523 1.09871C-0.146275 1.67428 -0.146275 2.60785 0.437523 3.18366L9.61025 12.2355C9.90189 12.523 10.2842 12.6667 10.6664 12.6667Z" fill="#E4B649"></path>
+        </svg>
+        Your chant has been released, click the button below and follow the instructions on how to use it!
     </p>
 
     <br>
-    <a href="vsl.html" id="manifest-btn">ACCESS MIRACULOUS CHANT 
-      OF ARCHANGEL MICHAEL
-      </a>
-  </div>
-
+    <a href="vsl.html" id="manifest-btn">ACCESS MIRACULOUS CHANT OF ARCHANGEL MICHAEL</a>
+</div>
 
 <script>
-    // Captura os parâmetros da URL atual
-    const currentParams = new URLSearchParams(window.location.search);
+    // Script to preserve URL parameters
+    window.onload = function() {
+        // Get the existing parameters from the current URL
+        const params = new URLSearchParams(window.location.search);
 
-    // Verifica se existem parâmetros
-    if (currentParams.toString()) {
-        // Seleciona o botão e atualiza o link
-        const manifestButton = document.getElementById('manifest-btn');
-        manifestButton.href = "vsl.html?" + currentParams.toString();
-    }
+        // Find the button link
+        const manifestBtn = document.getElementById('manifest-btn');
+
+        // Update the href of the button to include the current parameters
+        if (params.toString()) {
+            manifestBtn.href = `vsl.html?${params.toString()}`;
+        }
+    };
 </script>
+
+
+
 
 </body></html>
