@@ -9,6 +9,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
 <link href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&amp;display=swap" rel="stylesheet">
+
   <style>
         * {
             margin: 0;
@@ -63,38 +64,52 @@
 <body>
 
 <div class="container">
-    <h3 style="transform:translateY(-70px);">Find Out Who Your Guardian Angel Is and Access Your Angel’s Chant</h3>
+<h3 style="transform:translateY(-70px);">Find Out Who Your Guardian Angel Is and Access Your Angel’s Miraculous Chant</h3>
 
-    <p class="message">LOADING YOUR ANSWERS</p>
-    <div class="progress-bar">
-        <div class="progress" id="progress" style="width: 10%;"></div>
-    </div>
+<p class="message">LOADING YOUR ANSWERS</p>
+<div class="progress-bar">
+    <div class="progress" id="progress" style="width: 10%;"></div>
 </div>
 
 <script>
     // Function to animate the progress bar
-function animateProgress() {
-    const progressElement = document.getElementById('progress');
-    let width = 10;
-    const interval = setInterval(() => {
-        if (width >= 100) {
-            clearInterval(interval);
+    function animateProgress() {
+        const progressElement = document.getElementById('progress');
+        let width = 10;
+        const interval = setInterval(() => {
+            if (width >= 100) {
+                clearInterval(interval);
 
-            // Recupera os parâmetros da URL atual
-            const params = new URLSearchParams(window.location.search);
+                // Get current URL parameters
+                const params = new URLSearchParams(window.location.search);
 
-            // Redireciona para a próxima página com os parâmetros UTM preservados
-            window.location.href = "result.html?" + params.toString();
-        } else {
-            width++;
-            progressElement.style.width = width + '%';
-        }
-    }, 50); // Cada 50ms, a barra aumenta 1%, chegando a 100% em 5 segundos
-}
-
+                // Redirect to result.html with preserved parameters
+                window.location.href = "result.html?" + params.toString();
+            } else {
+                width++;
+                progressElement.style.width = width + '%';
+            }
+        }, 50); // Each 50ms, the bar increases by 1%, reaching 100% in 5 seconds
+    }
 
     // Start animation when the page loads
-    window.onload = animateProgress;
+    window.onload = function() {
+        // Capture URL parameters
+        const params = new URLSearchParams(window.location.search);
+
+        // Example of how to access a specific parameter
+        const birthDate = params.get('birth-date');  // If the parameter is 'birth-date'
+
+        // Do something with the parameters, like display them or use them as needed
+        console.log('Birth Date:', birthDate);  // For debugging if needed
+
+        // Optionally, you could display the birth date in the page or use it elsewhere
+        // For example: 
+        // document.getElementById('birth-date-display').innerText = birthDate;
+
+        // Start the progress bar animation
+        animateProgress();
+    };
 </script>
 
 
